@@ -1,0 +1,69 @@
+.HeaderWrapper {
+    display: flex;
+    align-items: center;
+    padding: 22px 0;
+}
+.HeaderContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.Search__Box {
+    width: 437px;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 16px;
+    background: #ede6e6;
+    border-radius: 12px;
+    input {
+        width: 361px;
+        height: 28px;
+        font-family: 'Montserrat';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        color: #1e0d03;
+        opacity: 0.3;
+        background: #ede6e6;
+    }
+}
+.Search__Icon {
+    display: flex;
+    align-items: center;
+    span {
+        svg {
+            color: #1e0d03;
+        }
+    }
+}
+.AccNotiMail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+    margin-right: 32px;
+}
+.NotiMail {
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+.Account {
+    width: 48px;
+    height: 48px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 50%;
+    }
+}

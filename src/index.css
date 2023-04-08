@@ -1,0 +1,8 @@
+body{
+  background-color:#F9F6F4;
+  height: 100vh;
+}
+:root{
+  --white: #fff;
+  --black: #000
+}
