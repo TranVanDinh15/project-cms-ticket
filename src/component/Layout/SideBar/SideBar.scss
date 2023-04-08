@@ -1,0 +1,72 @@
+.wrapperSideBar {
+    .SideBar__Container {
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        align-items: center;
+       
+        .sms_ticket_logo {
+            width: 133px;
+            height: 58px;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+           
+        }
+    }
+}
+.sms_ticket_menu__icon {
+}
+.sms_ticket_menu__item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 15px 16px 15px 24px;
+    gap: 12px;
+    width: 252px;
+    height: 56px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.sms_ticket_menu__title {
+    span {
+        width: 93px;
+        height: 26px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 26px;
+        opacity: 0.6;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        text-align: right;
+    }
+}
+.sms_ticket_menu__icon {
+    display: flex;
+    align-self: center;
+    svg {
+        color: #1e0d03;
+        opacity: 0.6;
+        width: 18px;
+        height: 20.06px;
+    }
+}
+.actionMenu {
+    background-color: #ffb800;
+    .sms_ticket_menu__icon {
+        svg {
+            color: #fff;
+            opacity: 1;
+        }
+    }
+    .sms_ticket_menu__title {
+        span {
+            color: #fff;
+            opacity: 1;
+        }
+    }
+}

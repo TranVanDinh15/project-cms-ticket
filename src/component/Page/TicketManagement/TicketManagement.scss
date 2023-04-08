@@ -1,0 +1,80 @@
+.searchTicketM {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 16px;
+    width: 393px;
+    height: 48px;
+    background: #f7f7f8;
+    border-radius: 8px;
+    .searchTicketM__input {
+        input {
+            width: 314px;
+            height: 28px;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+
+            color: #1e0d03;
+
+            opacity: 0.3;
+        }
+    }
+    .searchTicketM__icon {
+        span {
+            svg {
+                color: #1e0d03;
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+}
+.SearchFilter {
+    display: flex;
+    .filterTicketM {
+        flex-basis: 50%;
+        display: flex;
+        justify-content: right;
+        margin-left: 166px;
+        button {
+            border: 1px solid #ff993c;
+            color: #ff993c;
+            font-weight: 700;
+            height: 48px;
+        }
+    }
+}
+.TitleFilter {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    p {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+    }
+}
+.CalendarFilter{
+    margin-top: 27px;
+    display: flex;
+}
+.CalendarFilter_Item{
+    +.CalendarFilter_Item{
+        margin-left: 130px;
+    }
+}
+.RadioFilter__title{
+    margin: 22px 0;
+    p{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        color: #1E0D03;
+    }
+}

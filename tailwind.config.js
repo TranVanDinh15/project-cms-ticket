@@ -1,0 +1,45 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ['./src/**/*.{js,jsx,ts,tsx}'],
+    mode: 'jit',
+    purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+    darkMode: false, // or 'media' or 'class'
+    theme: {
+        extend: {
+            colors: {
+                white: '#fff',
+                black: '#000',
+                grey: '#888888',
+                'grey-1': '#F7F8FB',
+                'grey-2': '#F1F4F8',
+                'grey-3': '#E0E0E0',
+                'grey-4': '#A5A8B1',
+                'grey-5': '#919DBA',
+                end: '#FD5959',
+                promomote: '#03AC00',
+                checkBox: '#27AEF9',
+                'yellow-0': '#FFB800',
+                'yellow-1': '#FF993C',
+                'yellow-2': ' #C55E00',
+                'yellow-3': '#FFBA7B',
+                'yellow-4': '#FFD2A8',
+                'header-sidebar': '#F9F6F4',
+                primaryText: '#1E0D03',
+            },
+        },
+        fontWeight: {
+            thin: '100',
+            hairline: '100',
+            extralight: '200',
+            light: '300',
+            normal: '400',
+            medium: '500',
+            semibold: '600',
+            bold: '700',
+            extrabold: '800',
+            'extra-bold': '800',
+            black: '900',
+        },
+    },
+    plugins: [],
+};

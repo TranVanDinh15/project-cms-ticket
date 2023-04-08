@@ -1,0 +1,40 @@
+.ant-table-thead {
+    tr {
+        background-color: #f1f4f8;
+    }
+}
+.ant-pagination-item-link {
+    color: #ff993c !important;
+}
+.ant-pagination-item-active {
+    border-color: #ff993c !important;
+    a {
+        color: #ff993c !important;
+    }
+}
+.tagTable {
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+    svg {
+        width: 8px;
+        height: 8px;
+        margin-right: 8px;
+    }
+}
+.ant-table-thead {
+    tr {
+        th {
+            font-size: 16px !important;
+        }
+    }
+}
+.ant-table-tbody {
+    tr {
+        td {
+            color: #1e0d03;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+    }
+}
