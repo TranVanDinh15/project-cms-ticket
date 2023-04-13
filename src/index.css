@@ -1,8 +1,9 @@
-body{
-  background-color:#F9F6F4;
-  height: 100vh;
+body {
+    background-color: #f9f6f4;
+    height: 100vh;
+    width: 1920px;
 }
-:root{
-  --white: #fff;
-  --black: #000
+:root {
+    --white: #fff;
+    --black: #000;
 }

@@ -12,7 +12,6 @@
             flex: none;
             order: 0;
             flex-grow: 0;
-           
         }
     }
 }
@@ -67,5 +66,49 @@
             color: #fff;
             opacity: 1;
         }
+    }
+}
+:where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light .ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light > .ant-menu .ant-menu-item-selected {
+    background-color: #ffb800;
+}
+:where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light .ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light > .ant-menu .ant-menu-item-selected {
+    color: #fff;
+    .ant-menu-title-content {
+        font-size: 18px;
+        font-weight: 500;
+        color: #fff;
+        opacity: 1 !important;
+    }
+    svg {
+        color: #fff;
+        opacity: 1 !important;
+    }
+}
+:where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light.ant-menu-inline .ant-menu-item,
+:where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light > .ant-menu.ant-menu-inline .ant-menu-item {
+    position: relative;
+    padding: 15px 16px 15px 24px;
+    height: 56px;
+}
+.ant-menu-item {
+    svg {
+        color: #1e0d03;
+        opacity: 0.7 !important;
+    }
+}
+.ant-menu-title-content {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1e0d03;
+    opacity: 0.7 !important;
+}
+.ant-menu-submenu-title {
+    svg {
+        font-size: 18px;
+        font-weight: 500;
+        color: #1e0d03;
+        opacity: 0.7 !important;
     }
 }

@@ -60,21 +60,24 @@
         line-height: 30px;
     }
 }
-.CalendarFilter{
+.CalendarFilter {
     margin-top: 27px;
     display: flex;
 }
-.CalendarFilter_Item{
-    +.CalendarFilter_Item{
+.CalendarFilter_Item {
+    + .CalendarFilter_Item {
         margin-left: 130px;
     }
 }
-.RadioFilter__title{
+.RadioFilter__title {
     margin: 22px 0;
-    p{
+    p {
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
-        color: #1E0D03;
+        color: #1e0d03;
     }
+}
+.ant-radio-group {
+    padding: 0 !important;
 }

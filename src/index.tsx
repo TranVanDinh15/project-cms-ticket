@@ -5,19 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Context } from './component/context/context';
-
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+// import { LocaleProvider } from 'antd';
+import viVN from 'antd/lib/locale/vi_VN';
+import moment from 'moment';
+import 'moment/locale/vi';
+import { ConfigProvider } from 'antd';
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
-  <Context>
-  <BrowserRouter>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-  </BrowserRouter>
-  </Context>
+    <Context>
+        <BrowserRouter>
+            <ConfigProvider locale={viVN}>
+                <App />
+            </ConfigProvider>
+        </BrowserRouter>
+    </Context>,
 );
 
 // If you want to start measuring performance in your app, pass a function

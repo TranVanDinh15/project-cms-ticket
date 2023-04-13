@@ -1,14 +1,13 @@
-
-.SideBarChildren{
+.SideBarChildren {
     display: flex;
 }
-.ChildrenContent{
+.ChildrenContent {
     flex: 1;
     background-color: var(--white);
     margin-right: 32px;
     border-radius: 24px;
 }
-.logo{
+.logo {
     width: 133px;
     height: 58px;
     background: url('../../../../public/logo//insight-05\ 1.png');
@@ -16,9 +15,9 @@
     background-size: contain;
     margin: 17px 0 0 33px;
 }
-.ant-layout-sider-children{
-    background-color: #F9F6F4;
+.ant-layout-sider-children {
+    background-color: #f9f6f4;
 }
-.ant-layout-content{
+.ant-layout-content {
     margin: 0 !important;
 }

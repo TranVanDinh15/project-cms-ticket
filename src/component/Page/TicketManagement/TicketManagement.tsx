@@ -5,13 +5,13 @@ import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import TableConfig from '../../Table/Table';
 import ModalCustom from '../../modal/modal';
-import CalendarCustom from '../../Calendar/Calendar';
 import type { RadioChangeEvent } from 'antd';
 import { Radio } from 'antd';
 import { Checkbox, Col, Row } from 'antd';
 import type { CheckboxValueType } from 'antd/es/checkbox/Group';
 import TabsCustom from '../../UI/Tabs/Tabs';
-
+import CalendarCustom from '../../Calendar/Calendar';
+import SearchButton from '../../common/SearchButton';
 const TicketManagement = () => {
     const useStatus = [
         {
@@ -62,12 +62,10 @@ const TicketManagement = () => {
             disable: true,
         },
     ];
-
     const [radioFilter, setradioFilter] = useState('Tất cả');
-    const [isShow, setIsShow] = useState<boolean>(true);
+    const [isShow, setIsShow] = useState<boolean>(false);
     const [isDisable, setIsDisable] = useState<boolean>(false);
     const [checked, setChecked] = useState<string[]>([]);
-    console.log(checked);
     const handleCancel = () => {
         setIsShow(false);
     };
@@ -95,17 +93,10 @@ const TicketManagement = () => {
             setChecked(map);
         }
     };
+    // hiển thị nội dung của gói gia đình
     const childrenPF = (
         <>
-            <div className=" SearchFilter ">
-                <div className="searchTicketM">
-                    <div className="searchTicketM__input">
-                        <input placeholder="Tìm bằng số vé" />
-                    </div>
-                    <div className="searchTicketM__icon">
-                        <SearchOutlined />
-                    </div>
-                </div>
+            <SearchButton>
                 <div className="filterTicketM flex">
                     <Button className="flex items-center " onClick={handleShow}>
                         <FilterOutlined />
@@ -113,14 +104,35 @@ const TicketManagement = () => {
                     </Button>
                     <Button
                         className="flex items-center ml-[10px]
-              
-              "
+          
+          "
                     >
                         Xuất file (.csv)
                     </Button>
                 </div>
-            </div>
-            <TableConfig />,
+            </SearchButton>
+            <TableConfig type="PF" />,
+        </>
+    );
+    // Hiển thị nội dung của gói
+    const childrenPE = (
+        <>
+            <SearchButton>
+                <div className="filterTicketM flex">
+                    <Button className="flex items-center " onClick={handleShow}>
+                        <FilterOutlined />
+                        Lọc vé
+                    </Button>
+                    <Button
+                        className="flex items-center ml-[10px]
+          
+          "
+                    >
+                        Xuất file (.csv)
+                    </Button>
+                </div>
+            </SearchButton>
+            <TableConfig type="PE" />,
         </>
     );
     const tabItems = [
@@ -132,12 +144,12 @@ const TicketManagement = () => {
         {
             key: '2',
             label: `Gói sự kiện`,
-            children: `Content of Tab Pane 2`,
+            children: childrenPE,
         },
     ];
     return (
         <>
-            <DefaultLayout>
+            <DefaultLayout isFilterTicket={false} childComponent={<div></div>}>
                 <div className="TicketManagementWrapper ">
                     <div
                         className="ListTicketTitle w-[276px] text-[36px] 
@@ -156,7 +168,6 @@ const TicketManagement = () => {
                     showModal={handleShow}
                     width={634}
                 >
-                    {/* <CalendarCustom/> */}
                     <div className="TitleFilter">
                         <p>Lọc Vé</p>
                     </div>
@@ -218,6 +229,23 @@ const TicketManagement = () => {
                                 })}
                             </Row>
                         </Checkbox.Group>
+                        <div className="flex justify-center">
+                            <Button
+                                style={{
+                                    height: '48px',
+                                    width: '160px',
+                                    marginTop: '42px',
+                                    marginBottom: '23px',
+                                    border: '1.5px solid #FF993C',
+                                    fontSize: '18px',
+                                    color: '#FF993C',
+                                    fontWeight: '700',
+                                    borderRadius: '8px',
+                                }}
+                            >
+                                Lọc
+                            </Button>
+                        </div>
                     </div>
                 </ModalCustom>
             </DefaultLayout>
