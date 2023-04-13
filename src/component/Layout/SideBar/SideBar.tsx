@@ -63,35 +63,11 @@ const SideBar = () => {
                 <div className="sms_ticket_logo">
                     <div className="sms_ticket_logo__item"></div>
                 </div>
-                {/* <ul className='sms_ticket_menu'>
-                {
-                    menuData.map((menu, index)=>{
-                        return (               
-               <li className={`sms_ticket_menu__item ${id==menu.id? 'actionMenu' :''}`}
-               onClick={()=>{
-                handleSideBar(menu)
-               }}
-               key={menu.id}
-               >
-                <div className={`sms_ticket_menu__icon `}>
-                    {menu.icon}
-                </div>
-                <div className='sms_ticket_menu__title'>
-                    <span
-                    className='text-primaryText'
-                    >{menu.title}</span>
-                </div>
-                </li> 
-                        )
-                    })
-                }
-               
-            </ul> */}
+
                 <Menu
                     defaultSelectedKeys={[id]}
                     // defaultOpenKeys={['sub1']}
                     mode="inline"
-                    // theme="dark"
                     inlineCollapsed={collapsed}
                     items={items}
                     onClick={onClick}
