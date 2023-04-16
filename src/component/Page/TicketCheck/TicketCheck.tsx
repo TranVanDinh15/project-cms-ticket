@@ -47,7 +47,7 @@ const TicketCheck = () => {
                     <p>Từ ngày</p>
                 </div>
                 <div className="filterTicket__Item__Date">
-                    <CalendarCustom />
+                    <CalendarCustom type="date" />
                 </div>
             </div>
             <div className="filterTicket__Item">
@@ -55,7 +55,7 @@ const TicketCheck = () => {
                     <p>Đến ngày</p>
                 </div>
                 <div className="filterTicket__Item__Date">
-                    <CalendarCustom />
+                    <CalendarCustom type="date" />
                 </div>
             </div>
             <div className="flex justify-center mt-[43px] mb-[43px]">

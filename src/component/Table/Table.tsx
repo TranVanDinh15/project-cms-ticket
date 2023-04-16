@@ -5,11 +5,13 @@ import './Table.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faEllipsisVertical, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { useMemo, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import ModalCustom from '../modal/modal';
 import { click } from '@testing-library/user-event/dist/click';
 import CalendarCustom from '../Calendar/Calendar';
 import Item from 'antd/es/list/Item';
+import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
+import { MyContext } from '../context/context';
 interface DataType {
     key: string;
     Bookingcode: string;
@@ -38,6 +40,16 @@ interface DataTypeTC {
     gateCheck: string;
     status: number;
 }
+interface DataTypeLT {
+    key: string;
+    codePK: string;
+    name: string;
+    startDate: string;
+    EndDate: string;
+    ticketPrice: string;
+    comboPrice: string;
+    status: number;
+}
 // interfaceProps
 interface props {
     type: string;
@@ -48,9 +60,10 @@ let color = 'green';
 const circle = faCircle as IconProp;
 const ellipsisVertical = faEllipsisVertical as IconProp;
 const minus = faMinus as IconProp;
-
+const penSquare = faPenToSquare as IconProp;
 const TableConfig = ({ type, ischecked }: props) => {
-    console.log(ischecked);
+    // show modal Danh sách gói vé
+    const { isShow, setIsShow } = useContext(MyContext);
     // State show, hide modal
     const [modalStatus, setModalStatus] = useState(false);
     // đóng mở toolTip
@@ -585,6 +598,135 @@ const TableConfig = ({ type, ischecked }: props) => {
     const checked = dataTC.filter((item) => {
         return item.status == 1;
     });
+    // Cột Danh sách gói vé
+    const columnsLT: ColumnsType<DataTypeLT> = [
+        {
+            title: 'STT',
+            dataIndex: 'key',
+            key: 'key',
+        },
+        {
+            title: 'Mã gói',
+            dataIndex: 'codePK',
+            key: 'codePK',
+        },
+        {
+            title: 'Tên gói vé',
+            dataIndex: 'name',
+            key: 'name',
+        },
+        {
+            title: 'Ngày áp dụng',
+            dataIndex: 'startDate',
+            key: 'startDate',
+        },
+        {
+            title: 'Ngày hết hạn',
+            dataIndex: 'EndDate',
+            key: 'EndDate',
+        },
+        {
+            title: 'Giá vé (VNĐ/Vé)',
+            dataIndex: 'ticketPrice',
+            key: 'ticketPrice',
+        },
+        {
+            title: 'Giá Combo (VNĐ/Combo)',
+            dataIndex: 'comboPrice',
+            key: 'comboPrice',
+        },
+        {
+            title: 'Tình trạng',
+            dataIndex: 'status',
+            key: 'status',
+            render: (_, record) => (
+                <Space size="middle">
+                    {record.status == 1 && (
+                        <Tag
+                            color={color}
+                            className="tagTable"
+                            icon={<FontAwesomeIcon icon={circle} />}
+                            style={{
+                                backgroundColor: '#DEF7E0',
+                                border: '1px solid #03AC00',
+                                color: '#03AC00',
+                            }}
+                        >
+                            Đang sử dụng
+                        </Tag>
+                    )}
+                    {record.status == 0 && (
+                        <Tag
+                            color="volcano"
+                            icon={<FontAwesomeIcon icon={circle} />}
+                            className="tagTable"
+                            style={{
+                                backgroundColor: '#F8EBE8',
+                                border: '1px solid #FD5959',
+                                color: '#FD5959',
+                            }}
+                        >
+                            Tắt
+                        </Tag>
+                    )}
+                </Space>
+            ),
+        },
+        {
+            title: '',
+            dataIndex: '',
+            render: (_, record) => (
+                <Space
+                    size="middle"
+                    onClick={() => {
+                        // console.log(record.key);
+                    }}
+                >
+                    <Button
+                        style={{
+                            border: 'none',
+                            color: ' #FF993C',
+                        }}
+                        onClick={() => {
+                            setIsShow(true);
+                        }}
+                    >
+                        <FontAwesomeIcon
+                            icon={penSquare}
+                            style={{
+                                color: ' #FF993C',
+                                padding: '0 8px',
+                            }}
+                        />
+                        Cập nhật
+                    </Button>
+                </Space>
+            ),
+        },
+    ];
+    // data danh sách gói vé
+    const dataLT: DataTypeLT[] = [
+        {
+            key: '1',
+            codePK: 'ALT20210501',
+            name: 'Gói gia đình',
+            startDate: '14/04/2021 08:00:00',
+            EndDate: '14/04/2021 23:00:00',
+            ticketPrice: '90.000 VNĐ',
+            comboPrice: '360.000 VNĐ/4 Vé',
+            status: 0,
+        },
+        {
+            key: '2',
+            codePK: 'ALT20210501',
+            name: 'Gói sự kiện',
+            startDate: '14/04/2021 08:00:00',
+            EndDate: '14/04/2021 23:00:00',
+            ticketPrice: '90.000 VNĐ',
+            comboPrice: '',
+            status: 1,
+        },
+    ];
     return (
         <>
             {
@@ -617,6 +759,16 @@ const TableConfig = ({ type, ischecked }: props) => {
                 <Table
                     columns={columnsCT}
                     dataSource={ischecked == 1 ? dataTC : ischecked == 2 ? checked : uncontested}
+                    style={{
+                        marginTop: '31px',
+                    }}
+                    pagination={false}
+                />
+            )}
+            {type == 'LT' && (
+                <Table
+                    columns={columnsLT}
+                    dataSource={dataLT}
                     style={{
                         marginTop: '31px',
                     }}
@@ -674,7 +826,7 @@ const TableConfig = ({ type, ischecked }: props) => {
                                 <p>Hạn sử dụng</p>
                             </div>
                             <div>
-                                <CalendarCustom />
+                                <CalendarCustom type="date" />
                             </div>
                         </div>
                         <div className="updateTicketContent__footer">

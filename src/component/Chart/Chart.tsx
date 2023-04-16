@@ -66,7 +66,6 @@ const AreaChart = () => {
             }}
             line={{
                 style: {
-                    // fill: 'orange',
                     stroke: '#FF993C',
                     lineWidth: 3,
                 },

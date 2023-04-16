@@ -19,7 +19,7 @@ const Home = () => {
                                     <div className="Revenue">
                                         <p>Doanh thu</p>
                                     </div>
-                                    <CalendarCustom />
+                                    <CalendarCustom type="date" />
                                 </div>
                                 <AreaChart />
                             </div>
@@ -52,7 +52,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="PieChartDateWrapper">
-                            <CalendarCustom />
+                            <CalendarCustom type="date" />
                             <div className="PieChart">
                                 <PieChart lable={false} title="Gói gia đình" />
                             </div>

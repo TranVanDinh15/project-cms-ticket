@@ -176,13 +176,13 @@ const TicketManagement = () => {
                             <div className="mb-[10px] font-semibold">
                                 <p className="text-[16px]">Từ ngày</p>
                             </div>
-                            <CalendarCustom />
+                            <CalendarCustom type="date" />
                         </div>
                         <div className="CalendarFilter_Item">
                             <div className="mb-[10px] font-semibold">
                                 <p className="text-[16px]">Đến ngày</p>
                             </div>
-                            <CalendarCustom />
+                            <CalendarCustom type="date" />
                         </div>
                     </div>
                     <div className="RadioFilter">
