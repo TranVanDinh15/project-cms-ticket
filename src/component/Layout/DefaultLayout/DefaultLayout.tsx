@@ -26,7 +26,6 @@ const DefaultLayout = ({ children, isFilterTicket, childComponent }: Props) => {
                     console.log(collapsed, type);
                 }}
                 width={'321px'}
-                // theme='light'
                 className="bg-white"
             >
                 <div className="logo" />

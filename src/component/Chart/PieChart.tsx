@@ -31,7 +31,7 @@ export default function PieChart({ title, lable }: props) {
             >
                 {title}
             </div>
-            <Doughnut data={data} />;
+            <Doughnut data={data} />
         </div>
     );
 }
