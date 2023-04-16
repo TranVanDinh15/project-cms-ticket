@@ -1,12 +1,10 @@
 import './SideBar.scss';
 import React, { useContext, useState } from 'react';
-import { menuData } from '../../../data/data';
 import { useNavigate } from 'react-router';
 import { MyContext } from '../../context/context';
 import type { MenuProps } from 'antd';
-import { Button, Menu } from 'antd';
+import { Menu } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { HomeOutlined } from '@ant-design/icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faDesktop, faGear, faHouse, faList, faReceipt, faTicket } from '@fortawesome/free-solid-svg-icons';
 const houseIcon = faHouse as IconProp;
@@ -47,18 +45,12 @@ const SideBar = () => {
     const navigate = useNavigate();
 
     const [collapsed, setCollapsed] = useState(false);
-    const [currentKey, setCurrentKey] = useState<string>('/');
-    const toggleCollapsed = () => {
-        setCollapsed(!collapsed);
-    };
     const onClick: MenuProps['onClick'] = (e) => {
-        // console.log('click ', e);
-        // setCurrent(e.key);
         navigate(e.key);
         setId(e.key);
     };
     return (
-        <div className="w-[321px] h-[1080px] bg-header-sidebar wrapperSideBar">
+        <div className="wrapperSideBar">
             <div className="SideBar__Container">
                 <div className="sms_ticket_logo">
                     <div className="sms_ticket_logo__item"></div>
@@ -66,14 +58,13 @@ const SideBar = () => {
 
                 <Menu
                     defaultSelectedKeys={[id]}
-                    // defaultOpenKeys={['sub1']}
                     mode="inline"
                     inlineCollapsed={collapsed}
                     items={items}
                     onClick={onClick}
                     style={{
                         background: '#f9f6f4',
-                        padding: '0 33px',
+                        padding: '0 27px',
                         fontSize: '16px',
                         border: 'none',
                     }}
