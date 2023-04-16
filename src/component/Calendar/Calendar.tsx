@@ -41,6 +41,7 @@ function CalendarCustom() {
                     format={dateFormat}
                     renderExtraFooter={() => renderDayWeek}
                     showToday={false}
+                   
                 />
             ) : (
                 <DatePicker

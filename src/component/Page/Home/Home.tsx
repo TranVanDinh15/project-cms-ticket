@@ -2,6 +2,8 @@ import React, { Suspense } from 'react';
 import DefaultLayout from '../../Layout/DefaultLayout/DefaultLayout';
 import './Home.scss';
 import AreaChart from '../../Chart/Chart';
+import CalendarCustom from '../../Calendar/Calendar';
+import PieChart from '../../Chart/PieChart';
 const Home = () => {
     return (
         <Suspense fallback={<div>loading...</div>}>
@@ -17,7 +19,7 @@ const Home = () => {
                                     <div className="Revenue">
                                         <p>Doanh thu</p>
                                     </div>
-                                    <div className="Schema">dsaaa</div>
+                                    <CalendarCustom />
                                 </div>
                                 <AreaChart />
                             </div>
@@ -46,6 +48,25 @@ const Home = () => {
                                     >
                                         đồng
                                     </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="PieChartDateWrapper">
+                            <CalendarCustom />
+                            <div className="PieChart">
+                                <PieChart lable={false} title="Gói gia đình" />
+                            </div>
+                            <div className="PieChart">
+                                <PieChart lable={false} title="Gói sự kiện" />
+                            </div>
+                            <div className="Note">
+                                <div className="Note__Item">
+                                    <div className="Note__Item__Color"></div>
+                                    <div className="Note__Item__content">Vé đã sử dụng</div>
+                                </div>
+                                <div className="Note__Item">
+                                    <div className="Note__Item__Color"></div>
+                                    <div className="Note__Item__content">Vé chưa sử dụng</div>
                                 </div>
                             </div>
                         </div>

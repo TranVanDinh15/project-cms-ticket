@@ -111,7 +111,7 @@ const TicketManagement = () => {
                     </Button>
                 </div>
             </SearchButton>
-            <TableConfig type="PF" />,
+            <TableConfig type="PF" ischecked={0} />,
         </>
     );
     // Hiển thị nội dung của gói
@@ -132,7 +132,7 @@ const TicketManagement = () => {
                     </Button>
                 </div>
             </SearchButton>
-            <TableConfig type="PE" />,
+            <TableConfig type="PE" ischecked={0} />,
         </>
     );
     const tabItems = [

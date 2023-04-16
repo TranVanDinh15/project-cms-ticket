@@ -1,7 +1,6 @@
 .wrapperHome {
 }
 .Content_home {
-   
     // margin-top: 24px;
     // margin-left: 24px;
 }
@@ -68,5 +67,35 @@
     img {
         height: 100%;
         object-fit: contain;
+    }
+}
+.PieChartDateWrapper {
+    display: flex;
+    margin-top: 83px;
+}
+.PieChart {
+    margin: 0 170px;
+    + .PieChart {
+        margin: 0;
+    }
+}
+.Note {
+    margin-top: 36px;
+}
+.Note__Item {
+    display: flex;
+    margin-left: 170px;
+    .Note__Item__Color {
+        width: 44px;
+        height: 20px;
+        background: #4f75ff;
+        border-radius: 4px;
+        margin-right: 8px;
+    }
+    + .Note__Item {
+        margin-top: 18px;
+        .Note__Item__Color {
+            background: #ff8a48;
+        }
     }
 }

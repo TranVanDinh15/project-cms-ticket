@@ -58,6 +58,23 @@ const TicketCheck = () => {
                     <CalendarCustom />
                 </div>
             </div>
+            <div className="flex justify-center mt-[43px] mb-[43px]">
+                <Button
+                    style={{
+                        border: '1px solid rgb(255, 153, 60)',
+                        borderRadius: '8px',
+                        padding: '23px 67px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        color: 'rgb(255, 153, 60)',
+                        fontSize: '18px',
+                        fontWeight: '700',
+                    }}
+                >
+                    Lọc
+                </Button>
+            </div>
         </div>
     );
     return (
@@ -71,11 +88,9 @@ const TicketCheck = () => {
                         <p>Đối soát vé</p>
                     </div>
                     <SearchButton>
-                        <div className="filterTicketM flex">
-                            <Button className="checkTicketBTN">Chốt đối soát</Button>
-                        </div>
+                        <></>
                     </SearchButton>
-                    <TableConfig type="TC" />
+                    <TableConfig type="TC" ischecked={valueStatusFilter} />
                 </div>
             </div>
         </DefaultLayout>

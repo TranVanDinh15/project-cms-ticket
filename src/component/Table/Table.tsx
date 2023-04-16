@@ -9,6 +9,7 @@ import { useMemo, useState } from 'react';
 import ModalCustom from '../modal/modal';
 import { click } from '@testing-library/user-event/dist/click';
 import CalendarCustom from '../Calendar/Calendar';
+import Item from 'antd/es/list/Item';
 interface DataType {
     key: string;
     Bookingcode: string;
@@ -35,11 +36,12 @@ interface DataTypeTC {
     useDate: string;
     typeTicket: string;
     gateCheck: string;
-    status: string;
+    status: number;
 }
 // interfaceProps
 interface props {
     type: string;
+    ischecked: number;
 }
 let color = 'green';
 
@@ -47,11 +49,14 @@ const circle = faCircle as IconProp;
 const ellipsisVertical = faEllipsisVertical as IconProp;
 const minus = faMinus as IconProp;
 
-const TableConfig = ({ type }: props) => {
+const TableConfig = ({ type, ischecked }: props) => {
+    console.log(ischecked);
     // State show, hide modal
     const [modalStatus, setModalStatus] = useState(false);
     // đóng mở toolTip
     const [open, setOpen] = useState<boolean>(false);
+    // quản lý trạng thái dữ liệu đối soát vé
+    const [checkTicketState, setCheckTicketState] = useState<[]>([]);
     const showModal = () => {
         setModalStatus(true);
     };
@@ -467,7 +472,16 @@ const TableConfig = ({ type }: props) => {
             title: '',
             dataIndex: 'status',
             key: 'status',
-            render: (text) => <i className="text-[14px] text-[#A5A8B1] font-[500]">{text}</i>,
+            render: (text) => (
+                <i
+                    className="text-[14px] text-[#A5A8B1] font-[500]"
+                    style={{
+                        color: text == 1 ? '#FD5959' : '#A5A8B1',
+                    }}
+                >
+                    {text == 1 ? 'Đã đối soát' : 'Chưa đối soát'}
+                </i>
+            ),
         },
     ];
     // data của bảng đối soát vé
@@ -479,7 +493,7 @@ const TableConfig = ({ type }: props) => {
             useDate: '14/04/2021',
             typeTicket: 'Vé cổng',
             gateCheck: 'Cổng 1',
-            status: 'chưa đối soát',
+            status: 0,
         },
         {
             key: '2',
@@ -488,7 +502,7 @@ const TableConfig = ({ type }: props) => {
             useDate: '14/04/2021',
             typeTicket: 'Vé cổng',
             gateCheck: 'Cổng 1',
-            status: 'chưa đối soát',
+            status: 1,
         },
         {
             key: '3',
@@ -497,7 +511,7 @@ const TableConfig = ({ type }: props) => {
             useDate: '14/04/2021',
             typeTicket: 'Vé cổng',
             gateCheck: 'Cổng 1',
-            status: 'chưa đối soát',
+            status: 1,
         },
         {
             key: '4',
@@ -506,7 +520,7 @@ const TableConfig = ({ type }: props) => {
             useDate: '14/04/2021',
             typeTicket: 'Vé cổng',
             gateCheck: 'Cổng 1',
-            status: 'chưa đối soát',
+            status: 0,
         },
         {
             key: '5',
@@ -515,7 +529,7 @@ const TableConfig = ({ type }: props) => {
             useDate: '14/04/2021',
             typeTicket: 'Vé cổng',
             gateCheck: 'Cổng 1',
-            status: 'chưa đối soát',
+            status: 1,
         },
         {
             key: '6',
@@ -524,7 +538,7 @@ const TableConfig = ({ type }: props) => {
             useDate: '14/04/2021',
             typeTicket: 'Vé cổng',
             gateCheck: 'Cổng 1',
-            status: 'chưa đối soát',
+            status: 1,
         },
         {
             key: '7',
@@ -533,7 +547,7 @@ const TableConfig = ({ type }: props) => {
             useDate: '14/04/2021',
             typeTicket: 'Vé cổng',
             gateCheck: 'Cổng 1',
-            status: 'chưa đối soát',
+            status: 1,
         },
         {
             key: '8',
@@ -542,7 +556,7 @@ const TableConfig = ({ type }: props) => {
             useDate: '14/04/2021',
             typeTicket: 'Vé cổng',
             gateCheck: 'Cổng 1',
-            status: 'chưa đối soát',
+            status: 1,
         },
         {
             key: '9',
@@ -551,7 +565,7 @@ const TableConfig = ({ type }: props) => {
             useDate: '14/04/2021',
             typeTicket: 'Vé cổng',
             gateCheck: 'Cổng 1',
-            status: 'chưa đối soát',
+            status: 1,
         },
         {
             key: '10',
@@ -560,9 +574,17 @@ const TableConfig = ({ type }: props) => {
             useDate: '14/04/2021',
             typeTicket: 'Vé cổng',
             gateCheck: 'Cổng 1',
-            status: 'chưa đối soát',
+            status: 1,
         },
     ];
+    // data vé chưa đối soát
+    const uncontested = dataTC.filter((item) => {
+        return item.status == 0;
+    });
+    // data vé đã đối soát
+    const checked = dataTC.filter((item) => {
+        return item.status == 1;
+    });
     return (
         <>
             {
@@ -594,7 +616,7 @@ const TableConfig = ({ type }: props) => {
             {type == 'TC' && (
                 <Table
                     columns={columnsCT}
-                    dataSource={dataTC}
+                    dataSource={ischecked == 1 ? dataTC : ischecked == 2 ? checked : uncontested}
                     style={{
                         marginTop: '31px',
                     }}

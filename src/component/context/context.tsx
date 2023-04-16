@@ -6,6 +6,7 @@ type props = {
 interface idSetId {
     id: string;
     setId: (id: string) => void;
+    
 }
 export const MyContext = createContext<idSetId>({
     id: '/',

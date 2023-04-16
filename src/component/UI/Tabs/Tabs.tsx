@@ -8,7 +8,6 @@ const onChange = (key: string) => {
 const TabsCustom=({items}:TabsProps)=>{
     return (
         <Tabs defaultActiveKey="1" items={items} onChange={onChange} 
-        
       tabBarStyle={
         {
             color: '#919DBA',

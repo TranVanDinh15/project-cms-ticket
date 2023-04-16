@@ -40,7 +40,7 @@ const DefaultLayout = ({ children, isFilterTicket, childComponent }: Props) => {
                             style={{
                                 padding: 24,
                                 minHeight: 360,
-                                background: colorBgContainer,
+                                background: '#fff',
                                 marginRight: isFilterTicket ? 24 : 40,
                                 borderRadius: '24px',
                                 width: isFilterTicket ? '1097px' : 'auto',
@@ -66,7 +66,6 @@ const DefaultLayout = ({ children, isFilterTicket, childComponent }: Props) => {
                         </Content>
                     )}
                 </div>
-                {/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer> */}
             </Layout>
         </Layout>
     );
