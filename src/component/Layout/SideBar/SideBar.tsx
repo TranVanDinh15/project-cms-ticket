@@ -62,12 +62,8 @@ const SideBar = () => {
                     inlineCollapsed={collapsed}
                     items={items}
                     onClick={onClick}
-                    style={{
-                        background: '#f9f6f4',
-                        padding: '0 27px',
-                        fontSize: '16px',
-                        border: 'none',
-                    }}
+                    className="menuSideBar"
+                    style={{}}
                 />
             </div>
         </div>

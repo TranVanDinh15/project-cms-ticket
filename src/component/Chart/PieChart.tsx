@@ -13,7 +13,7 @@ export default function PieChart({ title, lable }: props) {
         labels: lable ? ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'] : [],
         datasets: [
             {
-                label: '# of Votes',
+                label: '',
                 data: [40, 60],
                 backgroundColor: ['#4F75FF', '#FF8A48'],
                 borderColor: ['#4F75FF', '#FF8A48'],

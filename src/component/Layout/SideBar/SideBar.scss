@@ -73,15 +73,15 @@
 }
 :where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light .ant-menu-item-selected,
 :where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light > .ant-menu .ant-menu-item-selected {
-    background-color: #ffb800;
+    background-color: #ffb800 !important;
 }
 :where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light .ant-menu-item-selected,
 :where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light > .ant-menu .ant-menu-item-selected {
-    color: #fff;
+    color: #fff !important;
     .ant-menu-title-content {
-        font-size: 18px;
-        font-weight: 500;
-        color: #fff;
+        font-size: 18px !important;
+        font-weight: 500 !important;
+        color: #fff !important;
         opacity: 1 !important;
     }
     svg {
@@ -91,9 +91,15 @@
 }
 :where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light.ant-menu-inline .ant-menu-item,
 :where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light > .ant-menu.ant-menu-inline .ant-menu-item {
-    position: relative;
-    padding: 15px 16px 15px 24px;
-    height: 56px;
+    position: relative !important;
+    padding: 15px 16px 15px 24px !important;
+    height: 56px !important;
+}
+.menuSideBar {
+    background: #f9f6f4;
+    padding: 0 27px;
+    fontsize: 16px;
+    border: none;
 }
 .ant-menu-item {
     svg {
