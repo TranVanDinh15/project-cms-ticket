@@ -1,3 +1,11 @@
+.wrapperTicketCheck {
+    // width: 100%;
+    // background-color: #fff !important;
+    // padding: 24px;
+    height: 1080px;
+    margin-right: 40px;
+    border-radius: 24px;
+}
 .filterTicketM {
     .checkTicketBTN {
         padding: 11px 24px;
@@ -12,8 +20,19 @@
         }
     }
 }
+.filterTicket {
+    width: 500px;
+    background-color: #fff;
+    padding-top: 22px;
+    padding-left: 24px;
+    border-radius: 24px;
+}
 .wrapperTicketCheck__ItemOne {
     width: 1097px;
+    margin-right: 24px;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 24px;
 }
 .filterTicket__title {
     p {

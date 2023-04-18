@@ -18,7 +18,8 @@
         }
     }
 }
-.sms_ticket_menu__icon {
+.ant-menu {
+    border: none !important;
 }
 .sms_ticket_menu__item {
     display: flex;
@@ -71,10 +72,7 @@
         }
     }
 }
-// :where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light .ant-menu-item-selected,
-// :where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light > .ant-menu .ant-menu-item-selected {
-// background-color: #ffb800 !important;
-// }
+
 .menuSideBar {
     .ant-menu-item-selected {
         background-color: #ffb800 !important;
@@ -96,20 +94,6 @@
         height: 56px !important;
     }
 }
-// :where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light .ant-menu-item-selected,
-// :where(.css-dev-only-do-not-override-1vtf12y).ant-menu-light > .ant-menu .ant-menu-item-selected {
-// .ant-menu-title-content {
-//     font-size: 18px !important;
-//     font-weight: 500 !important;
-//     color: #fff !important;
-//     opacity: 1 !important;
-// }
-// svg {
-//     color: #fff;
-//     opacity: 1 !important;
-// }
-// }
-
 .menuSideBar {
     background: #f9f6f4;
     padding: 0 27px;

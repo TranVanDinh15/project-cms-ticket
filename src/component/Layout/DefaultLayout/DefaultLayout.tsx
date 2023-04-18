@@ -4,13 +4,14 @@ import './DefaultLayout.scss';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
 import SideBar from '../SideBar/SideBar';
+import { Outlet } from 'react-router';
 const { Content, Footer, Sider } = Layout;
 type Props = {
-    children: React.ReactNode;
+    // children: React.ReactNode;
     isFilterTicket: boolean;
     childComponent: React.ReactNode;
 };
-const DefaultLayout = ({ children, isFilterTicket, childComponent }: Props) => {
+const DefaultLayout = ({ isFilterTicket, childComponent }: Props) => {
     const {
         token: { colorBgContainer },
     } = theme.useToken();
@@ -36,19 +37,21 @@ const DefaultLayout = ({ children, isFilterTicket, childComponent }: Props) => {
                 <div className="flex">
                     <Content>
                         <div
-                            style={{
-                                padding: 24,
-                                minHeight: 360,
-                                background: '#fff',
-                                marginRight: isFilterTicket ? 24 : 40,
-                                borderRadius: '24px',
-                                width: isFilterTicket ? '1097px' : 'auto',
-                            }}
+                            style={
+                                {
+                                    // padding: 24,
+                                    // minHeight: 360,
+                                    // background: '#fff',
+                                    // marginRight: isFilterTicket ? 24 : 40,
+                                    // borderRadius: '24px',
+                                    // width: isFilterTicket ? '1097px' : 'auto',
+                                }
+                            }
                         >
-                            {children}
+                            <Outlet />
                         </div>
                     </Content>
-                    {isFilterTicket && (
+                    {/* {isFilterTicket && (
                         <Content>
                             <div
                                 style={{
@@ -63,7 +66,7 @@ const DefaultLayout = ({ children, isFilterTicket, childComponent }: Props) => {
                                 {childComponent}
                             </div>
                         </Content>
-                    )}
+                    )} */}
                 </div>
             </Layout>
         </Layout>

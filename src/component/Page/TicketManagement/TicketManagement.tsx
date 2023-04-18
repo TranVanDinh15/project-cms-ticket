@@ -149,106 +149,102 @@ const TicketManagement = () => {
     ];
     return (
         <>
-            <DefaultLayout isFilterTicket={false} childComponent={<div></div>}>
-                <div className="TicketManagementWrapper ">
-                    <div
-                        className="ListTicketTitle w-[276px] text-[36px] 
+            {/* <DefaultLayout isFilterTicket={false} childComponent={<div></div>}> */}
+            <div className="TicketManagementWrapper ">
+                <div
+                    className="ListTicketTitle w-[276px] text-[36px] 
             font-bold "
-                    >
-                        <p>Danh sách vé</p>
+                >
+                    <p>Danh sách vé</p>
+                </div>
+                <div className="TabsTM">
+                    <TabsCustom items={tabItems} />
+                </div>
+            </div>
+            <ModalCustom
+                isModalOpen={isShow}
+                handleOk={handleShow}
+                handleCancel={handleCancel}
+                showModal={handleShow}
+                width={634}
+            >
+                <div className="TitleFilter">
+                    <p>Lọc Vé</p>
+                </div>
+                <div className="CalendarFilter">
+                    <div className="CalendarFilter_Item">
+                        <div className="mb-[10px] font-semibold">
+                            <p className="text-[16px]">Từ ngày</p>
+                        </div>
+                        <CalendarCustom type="date" />
                     </div>
-                    <div className="TabsTM">
-                        <TabsCustom items={tabItems} />
+                    <div className="CalendarFilter_Item">
+                        <div className="mb-[10px] font-semibold">
+                            <p className="text-[16px]">Đến ngày</p>
+                        </div>
+                        <CalendarCustom type="date" />
                     </div>
                 </div>
-                <ModalCustom
-                    isModalOpen={isShow}
-                    handleOk={handleShow}
-                    handleCancel={handleCancel}
-                    showModal={handleShow}
-                    width={634}
-                >
-                    <div className="TitleFilter">
-                        <p>Lọc Vé</p>
+                <div className="RadioFilter">
+                    <div className="RadioFilter__title">
+                        <p>Tình trạng sử dụng</p>
                     </div>
-                    <div className="CalendarFilter">
-                        <div className="CalendarFilter_Item">
-                            <div className="mb-[10px] font-semibold">
-                                <p className="text-[16px]">Từ ngày</p>
-                            </div>
-                            <CalendarCustom type="date" />
-                        </div>
-                        <div className="CalendarFilter_Item">
-                            <div className="mb-[10px] font-semibold">
-                                <p className="text-[16px]">Đến ngày</p>
-                            </div>
-                            <CalendarCustom type="date" />
-                        </div>
+                    <Radio.Group onChange={onChange} value={radioFilter} className="flex justify-between gap-[40px]">
+                        {useStatus.map((item) => {
+                            return (
+                                <Radio key={item.id} value={item.title} className="text-[16px]">
+                                    {item.title}
+                                </Radio>
+                            );
+                        })}
+                    </Radio.Group>
+                    <div className="RadioFilter__title">
+                        <p>Cổng check - in</p>
                     </div>
-                    <div className="RadioFilter">
-                        <div className="RadioFilter__title">
-                            <p>Tình trạng sử dụng</p>
-                        </div>
-                        <Radio.Group
-                            onChange={onChange}
-                            value={radioFilter}
-                            className="flex justify-between gap-[40px]"
-                        >
-                            {useStatus.map((item) => {
+                    <Checkbox.Group
+                        style={{ width: '100%' }}
+                        onChange={onChangeCheckBox}
+                        className="flex justify-between "
+                    >
+                        <Row className="flex justify-between ">
+                            {checkData.map((item) => {
                                 return (
-                                    <Radio key={item.id} value={item.title} className="text-[16px]">
-                                        {item.title}
-                                    </Radio>
+                                    <Col
+                                        // className='ml-[px]'
+                                        span={8}
+                                    >
+                                        <Checkbox
+                                            value={item.title}
+                                            disabled={item.disable == isDisable ? true : false}
+                                            className="text-[16px]"
+                                        >
+                                            {item.title}
+                                        </Checkbox>
+                                    </Col>
                                 );
                             })}
-                        </Radio.Group>
-                        <div className="RadioFilter__title">
-                            <p>Cổng check - in</p>
-                        </div>
-                        <Checkbox.Group
-                            style={{ width: '100%' }}
-                            onChange={onChangeCheckBox}
-                            className="flex justify-between "
+                        </Row>
+                    </Checkbox.Group>
+                    <div className="flex justify-center">
+                        <Button
+                            style={{
+                                height: '48px',
+                                width: '160px',
+                                marginTop: '42px',
+                                marginBottom: '23px',
+                                border: '1.5px solid #FF993C',
+                                fontSize: '18px',
+                                color: '#FF993C',
+                                fontWeight: '700',
+                                borderRadius: '8px',
+                            }}
                         >
-                            <Row className="flex justify-between ">
-                                {checkData.map((item) => {
-                                    return (
-                                        <Col
-                                            // className='ml-[px]'
-                                            span={8}
-                                        >
-                                            <Checkbox
-                                                value={item.title}
-                                                disabled={item.disable == isDisable ? true : false}
-                                                className="text-[16px]"
-                                            >
-                                                {item.title}
-                                            </Checkbox>
-                                        </Col>
-                                    );
-                                })}
-                            </Row>
-                        </Checkbox.Group>
-                        <div className="flex justify-center">
-                            <Button
-                                style={{
-                                    height: '48px',
-                                    width: '160px',
-                                    marginTop: '42px',
-                                    marginBottom: '23px',
-                                    border: '1.5px solid #FF993C',
-                                    fontSize: '18px',
-                                    color: '#FF993C',
-                                    fontWeight: '700',
-                                    borderRadius: '8px',
-                                }}
-                            >
-                                Lọc
-                            </Button>
-                        </div>
+                            Lọc
+                        </Button>
                     </div>
-                </ModalCustom>
-            </DefaultLayout>
+                </div>
+            </ModalCustom>
+            {/* </DefaultLayout> */}
         </>
     );
 };

@@ -78,22 +78,23 @@ const TicketCheck = () => {
         </div>
     );
     return (
-        <DefaultLayout isFilterTicket={true} childComponent={contentFilterTicket}>
-            <div className="wrapperTicketCheck flex">
-                <div className="wrapperTicketCheck__ItemOne">
-                    <div
-                        className="ListTicketTitle w-[276px] text-[36px] 
+        // <DefaultLayout isFilterTicket={true} childComponent={contentFilterTicket}>
+        <div className="wrapperTicketCheck flex">
+            <div className="wrapperTicketCheck__ItemOne">
+                <div
+                    className="ListTicketTitle w-[276px] text-[36px] 
             font-bold mb-[32px] "
-                    >
-                        <p>Đối soát vé</p>
-                    </div>
-                    <SearchButton>
-                        <></>
-                    </SearchButton>
-                    <TableConfig type="TC" ischecked={valueStatusFilter} />
+                >
+                    <p>Đối soát vé</p>
                 </div>
+                <SearchButton>
+                    <></>
+                </SearchButton>
+                <TableConfig type="TC" ischecked={valueStatusFilter} />
             </div>
-        </DefaultLayout>
+            {contentFilterTicket}
+        </div>
+        // </DefaultLayout>
     );
 };
 

@@ -36,7 +36,8 @@ const PackageTicket = () => {
         console.log('checked = ', checkedValues);
     };
     return (
-        <DefaultLayout childComponent={<></>} isFilterTicket={false}>
+        // <DefaultLayout childComponent={<></>} isFilterTicket={false}>
+        <>
             <div className="packageTicketWrapper ">
                 <div className="wrapperTicketCheck__ItemOne">
                     <div
@@ -69,8 +70,8 @@ const PackageTicket = () => {
                         </div>
                     </SearchButton>
                 </div>
+                <TableConfig type="LT" ischecked={1} />,
             </div>
-            <TableConfig type="LT" ischecked={1} />,
             <ModalCustom
                 isModalOpen={isShow}
                 handleOk={handleShow}
@@ -505,7 +506,8 @@ const PackageTicket = () => {
                     </div>
                 </div>
             </ModalCustom>
-        </DefaultLayout>
+        </>
+        // </DefaultLayout>
     );
 };
 export default PackageTicket;
